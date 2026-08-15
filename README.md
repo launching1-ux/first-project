@@ -13,7 +13,7 @@ This simple math calculator that can:
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/divinesarker2001/math-calculator.git
+git clone https://github.com/launching1-ux/math-calculator.git
 ```
 2. Run the python file (source.py)
 ```bash
