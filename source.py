@@ -1,12 +1,67 @@
-'''
-Welcome to my math calculator, I tried to make it as my first project :)
-This is the improved version!
-'''
+"""
+A simple math calculator, supporting basic operations: adding,
+subtracting, multiplying and division.
+"""
+
+from __future__ import annotations
+
+from functools import wraps
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from typing import Literal
+
+    from _typeshed import SupportsWrite
+
+
+SUPPORTED_OPERATOR = (
+    "+",
+    "-",
+    "*",
+    "/",
+    "add",
+    "subtract",
+    "multiply",
+    "divide",
+)
+
+
+def add_line_seps(symbol: str, length: int):
+    line_sep = symbol * length
+
+    def decorator(func):
+
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            print(line_sep)
+            result = func(*args, **kwargs)
+            print(line_sep)
+
+            return result
+
+        return wrapper
+
+    return decorator
+
+
+@add_line_seps(symbol="-", length=40)
+def print_with_line_seps(
+    *values: object,
+    sep: str | None = " ",
+    end: str | None = "\n",
+    file: SupportsWrite[str] | None = None,
+    flush: Literal[False] = False,
+) -> None:
+    print(*values, sep=sep, end=end, file=file, flush=flush)
+
+
 def greet():
-    print('-'*40)
-    print("Welcome to the math calculator, my first project ever!")
-    print("I'd appreciate if you try this calculator by yourself.")
-    print('-'*40)
+    print_with_line_seps(
+        "Welcome to the math calculator, my first project ever!",
+        "I'd appreciate if you try this calculator by yourself.",
+        sep="\n",
+    )
+
 
 def get_numbers():
     while True:
@@ -17,47 +72,56 @@ def get_numbers():
         except ValueError:
             print("Please type only integers or decimals")
 
+
 def get_operator():
-    operator = ['+', '-', '*', '/', 'add', 'subtract', 'multiply', 'divide']
     while True:
-        op = input('Enter operator (+, -, *, /) or (add, subtract, multiply, divide):    ').lower()
-        if op in operator:
+        op = input(
+            "Enter operator (+, -, *, /) or (add, subtract, multiply, divide):"
+            # Extra indents
+            "    "
+        ).lower()
+
+        if op in SUPPORTED_OPERATOR:
             return op
-        print('Please choose from the options given!')
+
+        print("Please choose from the options given!")
+
 
 def calculate(num1, num2, op):
-    if op == '+' or op == 'add':
-        return num1 + num2
-    elif op == '-' or op == 'subtract':
-        return num1 - num2
-    elif op == '*' or op == 'multiply':
-        return num1 * num2
-    elif op == '/' or op == 'divide':
-        if num2 != 0:
-            return num1 / num2
-        else:
-            print('Cannot divide a number by zero!') 
+    match op:
+        case "+" | "add":
+            return num1 + num2
+        case "-" | "subtract":
+            return num1 - num2
+        case "*" | "multiply":
+            return num1 * num2
+        case "/" | "divide":
+            if num2 != 0:
+                return num1 / num2
+            else:
+                print("Cannot divide a number by zero!")
+
 
 def main():
     greet()
-    
+
     while True:
         num1, num2 = get_numbers()
         op = get_operator()
         result = calculate(num1, num2, op)
-        
-        if result is not None:
-            print('-'*40)
-            print(f"Result: {num1} {op} {num2} = {result}")
-            print('-'*40)
 
-        again = input("Do you want to calculate again? (y/n): ").strip().lower()
-        if again != 'y':
-            print('-'*40)
-            print("Thanks for using my calculator, have a nice day!")
-            print('-'*40)
+        if result is not None:
+            print_with_line_seps(f"Result: {num1} {op} {num2} = {result}")
+
+        again = (
+            input("Do you want to calculate again? (y/n): ").strip().lower()
+        )
+        if again != "y":
+            print_with_line_seps(
+                "Thanks for using my calculator, have a nice day!"
+            )
             break
 
+
 if __name__ == "__main__":
-    main()
     main()
