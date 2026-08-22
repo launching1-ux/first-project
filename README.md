@@ -20,3 +20,7 @@ git clone https://github.com/launching1-ux/first-project.git
 python (put your file location here)
 ```
 Or execute it using a code editor like VS Code or Pycharm
+
+##Contributing
+
+Well, first of all, I'm really thankful for helping me out improving my first project ever! Make changes on anything you can help me out with, code improvements, typos, optimizations, wherever you feel interested helping in. Make an issue or PR on the changes you made on the repository and this is how your contribution helps me by A LOT!
