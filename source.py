@@ -1,6 +1,7 @@
 """
 A simple math calculator, supporting basic operations: adding,
 subtracting, multiplying and division.
+Well thanks for trying it out if you've cloned it :)
 """
 
 from wrapping import *
