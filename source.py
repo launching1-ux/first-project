@@ -69,12 +69,13 @@ def main():
     greet()
 
     while True:
-        num1, num2 = get_numbers()
-        op = get_operator()
-        result = calculate(num1, num2, op)
+        array = [0, 0, '']
+        array[0], array[1] = get_numbers()
+        array[2] = get_operator()
+        result = calculate(array[0], array[1], array[2])
 
         if result is not None:
-            print_with_line_seps(f"Result: {num1} {op} {num2} = {result}")
+            print_with_line_seps(f"Result: {array[0]} {array[2]} {array[1]} = {result}")
 
         again = (
             input("Do you want to calculate again? (y/n): ").strip().lower()
