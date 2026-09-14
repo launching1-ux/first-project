@@ -16,7 +16,9 @@ This simple math calculator that can:
 git clone https://github.com/launching1-ux/first-project.git
 ```
 
-2. Change the current directory to the folder 'source.py' is installed, if you're on macOS/Linux, use this:
+2. Change the current directory to the folder 'source.py' is installed. Usually you can install this repository in the 'Downloads' folder. This part is optional, specially if you're familiar with your terminal.
+
+If you're on macOS/Linux, use this:
 ```bash
 cd ./Downloads/
 ```
