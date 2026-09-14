@@ -15,9 +15,21 @@ This simple math calculator that can:
 ```bash
 git clone https://github.com/launching1-ux/first-project.git
 ```
-2. Run the python file (source.py)
+
+2. Change the current directory to the folder 'source.py' is installed, if you're on macOS/Linux, use this:
 ```bash
-python (put your file location here)
+cd ./Downloads/
+```
+Or if you're on Windows, then use this:
+```bash
+cd %USERPROFILE%\Downloads
+```
+Simply replace '%USERPROFILE%' with the username of your Windows machine
+
+
+3. Run the python file (source.py)
+```bash
+python source.py
 ```
 Or execute it using a code editor like VS Code or Pycharm
 
