@@ -1,6 +1,6 @@
 # Math Calculator - My First Python Project
 
-This is my first project ever :) Well i am new to Python and i learnt some basic programming so i thought to make one project. I wil be very thankful if you give a check on my project. This project was made a long time and i released it in Sololearn first and then here.
+This is my first project ever :) Well I am new to Python and I learnt some basic programming so I thought to make one project. I would be very thankful if you give a check on my project. This project was made a long time and i released it first in Sololearn and then here.
 This a calculator project :)
 This simple math calculator that can:
 
